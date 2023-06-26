@@ -1,56 +1,31 @@
-package chiteado.coladepilas;
+import java.util.Queue;
+import java.util.Stack;
 
-import chiteado.colas.ColaTDA;
-import chiteado.pilas.PilaTF;
+public class QueueOfStacks {
+    private Queue<Stack<Integer>> queueOfStacks;
 
-public class QueueOfStacks<T> implements QueueOfStacksTDA{
+    // Constructor y otros métodos de la clase QueueOfStacks
 
-    private PilaTF[] cola;
-    int inx;
+    public int calculateTrace() {
+        int trace = 0;
+        int currentIndex = 0;
 
-    public void InicializarCola(int n) {
-        cola = new PilaTF[n];
-        inx = 0;
-    }
-
-    public void Acolar(PilaTF pila) {
-        for(int i=inx-1;i>=0;i--) {
-            cola[i+1]=cola[i];
+        for (Stack<Integer> stack : queueOfStacks) {
+            if (!stack.isEmpty()) {
+                trace += stack.get(currentIndex);
+                currentIndex++;
+            }
         }
-        cola[0]=pila;
-        inx++;
+
+        return trace;
     }
 
-    public void Desacolar() {inx--;}
+    public static void main(String[] args) {
+        QueueOfStacks queueOfStacks = new QueueOfStacks();
 
+        // Agrega tus pilas a la cola de pilas aquí...
 
-    public boolean ColaVacia() {return (inx==0);}
-
-    public PilaTF Primero() {
-        return cola[inx-1];
-    }
-
-    public void MostrarCola() {
-
-    }
-
-    public ColaTDA Mediciones() {
-        return null;
-    }
-
-    public void InvertirColaSinAux() {
-
-    }
-
-    public boolean Capicua() {
-        return false;
-    }
-
-    public boolean SonInversas(ColaTDA or2) {
-        return false;
-    }
-
-    public void EliminarRepetidosConcurrentes() {
-
+        int trace = queueOfStacks.calculateTrace();
+        System.out.println("La traza de la estructura QueueOfStacks es: " + trace);
     }
 }
