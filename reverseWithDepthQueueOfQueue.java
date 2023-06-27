@@ -9,7 +9,7 @@ public class QueueOfQueueImpl<T> implements QueueOfQueue<T> {
         queueOfQueues = new LinkedList<>();
     }
 
-    // Resto de métodos de la clase QueueOfQueueImpl
+    // Métodos de la clase QueueOfQueueImpl
 
     public QueueOfQueue<T> reverseWithDepth() {
         QueueOfQueue<T> reversedQueueOfQueue = new QueueOfQueueImpl<>();
