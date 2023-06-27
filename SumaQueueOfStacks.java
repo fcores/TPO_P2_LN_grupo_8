@@ -104,4 +104,15 @@ public class QueueOfStacks {
         System.out.println("Estructura original 1:");
         queue1.printStructure();
 
+        System.out.println("Estructura original 2:");
+        queue2.printStructure();
+        
+        // mostramos la suma matricial
+        
+        QueueOfStacks sumQueue = QueueOfStacks.matrixSum(queue1, queue2);
+        System.out.println("Suma matricial:");
+        sumQueue.printStructure();
+    }
+}
+
 
