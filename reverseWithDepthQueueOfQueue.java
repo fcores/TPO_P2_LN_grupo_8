@@ -61,3 +61,7 @@ public class QueueOfQueueImpl<T> implements QueueOfQueue<T> {
         reversedQueueOfQueue.printStructure();
     }
 }
+
+//  El tamaño de las colas de pilas es n, por lo que iteraremos n veces en el bucle for.
+//  En cada iteración del bucle for, realizamos operaciones en las pilas stack1 y stack2, que tienen un tamaño máximo de n elementos.
+//  En total, el método matrixSum tiene una complejidad de O(n^2), donde n es el tamaño de las colas de pilas.
