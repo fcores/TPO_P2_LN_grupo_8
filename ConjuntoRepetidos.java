@@ -8,9 +8,6 @@ public class ConjuntoConRepetidos<T> {
         elementos = new HashMap<>();
     }
 
-    /**
-     * @Costo: Constante (en promedio)
-     **/
     public void agregarElemento(T elemento, int cantidad) {
         if (elementos.containsKey(elemento)) {
             int cantidadActual = elementos.get(elemento);
@@ -20,9 +17,6 @@ public class ConjuntoConRepetidos<T> {
         }
     }
 
-    /**
-     * @Costo: Constante
-     **/
     public void eliminarElemento(T elemento, int cantidad) {
         if (elementos.containsKey(elemento)) {
             int cantidadActual = elementos.get(elemento);
@@ -35,16 +29,10 @@ public class ConjuntoConRepetidos<T> {
         }
     }
 
-    /**
-     * @Costo: Constante
-     **/
     public boolean contieneElemento(T elemento) {
         return elementos.containsKey(elemento);
     }
 
-    /**
-     * @Costo: Constante
-     **/
     public int obtenerCantidad(T elemento) {
         if (elementos.containsKey(elemento)) {
             return elementos.get(elemento);
