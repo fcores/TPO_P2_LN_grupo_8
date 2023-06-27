@@ -1,49 +1,80 @@
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public classQueueOfStacks. {
-private Queue<Stack<Integer>>QueueOfStacks.;
+public class QueueOfStacks {
+    private Queue<Stack<Integer>> queueOfStacks;
 
+    public QueueOfStacks() {
+        queueOfStacks = new LinkedList<>();
+    }
 
+    public void addStack(Stack<Integer> stack) {
+        queueOfStacks.offer(stack);
+    }
 
-        publicQueueOfStacks. getTraspuesta() {
-        QueueOfStacks. ColaTraspuesta = newQueueOfStacks.();
+    public QueueOfStacks getTranspose() {
+        QueueOfStacks transposeQueue = new QueueOfStacks();
 
-        // Obtenemos el tamaño de la estructuraQueueOfStacks.
-
-        int size =QueueOfStacks..size();
-
-        // Creamos pilas temporales para almacenar las columnas
-
+        int size = queueOfStacks.size();
         Stack<Integer>[] columnStacks = new Stack[size];
         for (int i = 0; i < size; i++) {
-        columnStacks[i] = new Stack<>();
+            columnStacks[i] = new Stack<>();
         }
 
-        // Extraemos los elementos de cada pila en la cola de pilas y los colocamos en las pilas temporales de columnas
-
-        for (Stack<Integer> stack :QueueOfStacks.) {
-        for (int i = 0; i < size; i++) {
-        columnStacks[i].push(stack.pop());
+        for (Stack<Integer> stack : queueOfStacks) {
+            for (int i = 0; i < size; i++) {
+                columnStacks[i].push(stack.pop());
+            }
         }
-        }
-
-        // Colocamos las pilas temporales de columnas en la cola de pilas de la traspuesta
 
         for (int i = 0; i < size; i++) {
-        ColaTraspuesta.QueueOfStacks..offer(columnStacks[i]);
+            transposeQueue.queueOfStacks.offer(columnStacks[i]);
         }
 
-        return ColaTraspuesta;
-        }
+        return transposeQueue;
+    }
 
-public static void main(String[] args) {
-        QueueOfStacks.QueueOfStacks. = newQueueOfStacks.();
-
-        // Agregamos las pilas a la cola de pilas
-
-        QueueOfStacks. ColaTraspuesta =QueueOfStacks..getTraspuesta();
-        System.out.println("La traspuesta de la estructuraQueueOfStacks. es:");
-        ColaTraspuesta.printStructure(); // Implementamos un método para imprimir la estructuraQueueOfStacks.
+    public void printStructure() {
+        for (Stack<Integer> stack : queueOfStacks) {
+            for (Integer element : stack) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
         }
-        }
+    }
+
+    public static void main(String[] args) {
+        QueueOfStacks queueOfStacks = new QueueOfStacks();
+
+        // Creamos y agregamos pilas a la cola de pilas
+        Stack<Integer> stack1 = new Stack<>();
+        stack1.push(1);
+        stack1.push(2);
+        stack1.push(3);
+
+        Stack<Integer> stack2 = new Stack<>();
+        stack2.push(4);
+        stack2.push(5);
+        stack2.push(6);
+
+        Stack<Integer> stack3 = new Stack<>();
+        stack3.push(7);
+        stack3.push(8);
+        stack3.push(9);
+
+        queueOfStacks.addStack(stack1);
+        queueOfStacks.addStack(stack2);
+        queueOfStacks.addStack(stack3);
+
+        System.out.println("Estructura original:");
+        queueOfStacks.printStructure();
+
+        QueueOfStacks transposeQueue = queueOfStacks.getTranspose();
+        System.out.println("Traspuesta de la estructura QueueOfStacks:");
+        transposeQueue.printStructure();
+    }
+}
+
+//  la complejidad computacional del código es O(N*M) en la mayoría de los casos
+//  donde N es el número de pilas en la cola y M es el tamaño de cada pila.
