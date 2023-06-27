@@ -9,18 +9,12 @@ public class ColaDinamicaCircular<T> {
         cantidad = 0;
     }
 
-    /**
-     * @Costo: Constante
-     **/
     public void inicializarCola() {
         frente = null;
         fin = null;
         cantidad = 0;
     }
 
-    /**
-     * @Costo: Constante
-     **/
     public void acolar(T x) {
         Nodo<T> nuevoNodo = new Nodo<>(x);
 
@@ -40,9 +34,6 @@ public class ColaDinamicaCircular<T> {
         cantidad++;
     }
 
-    /**
-     * @Costo: Constante
-     **/
     public void desacolar() {
         if (!colaVacia()) {
             frente = frente.getSiguiente();
@@ -59,43 +50,31 @@ public class ColaDinamicaCircular<T> {
             System.out.println("Error: La cola está vacía, no se puede desacolar");
         }
     }
-
-    /**
-     * @Costo: Constante
-     **/
+    
     public boolean colaVacia() {
         return (cantidad == 0);
     }
 
-    /**
-     * @Costo: Constante
-     **/
     public T frente() {
         if (!colaVacia()) {
             return frente.getDato();
         } else {
-            // La cola está vacía, se puede manejar un caso de error o lanzar una excepción
+            // Como la cola está vacía lo podemos considerar como un caso de error o una excepción
             System.out.println("Error: La cola está vacía, no tiene frente");
             return null;
         }
     }
-
-    /**
-     * @Costo: Constante
-     **/
+    
     public T fin() {
         if (!colaVacia()) {
             return fin.getDato();
         } else {
-            // La cola está vacía, se puede manejar un caso de error o lanzar una excepción
+            // Como la cola está vacía lo podemos considerar como un caso de error o una excepción
             System.out.println("Error: La cola está vacía, no tiene fin");
             return null;
         }
     }
 
-    /**
-     * @Costo: Constante
-     **/
     public int cantidad() {
         return cantidad;
     }
