@@ -4,7 +4,7 @@ import java.util.Stack;
 public class QueueOfStacks {
     private Queue<Stack<Integer>> queueOfStacks;
 
-    // Constructor y otros métodos de la clase QueueOfStacks
+    // el constructor y métodos de la clase QueueOfStacks
 
     public int calculateTrace() {
         int trace = 0;
@@ -22,9 +22,7 @@ public class QueueOfStacks {
 
     public static void main(String[] args) {
         QueueOfStacks queueOfStacks = new QueueOfStacks();
-
-        // Agrega tus pilas a la cola de pilas aquí...
-
+        
         int trace = queueOfStacks.calculateTrace();
         System.out.println("La traza de la estructura QueueOfStacks es: " + trace);
     }
