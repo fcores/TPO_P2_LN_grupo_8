@@ -115,4 +115,6 @@ public class QueueOfStacks {
     }
 }
 
-
+//  la complejidad computacional del código es principalmente determinada por el tamaño 
+//  de la cola de pilas (size) y el tamaño máximo de cada pila (n), siendo de O(size * n) 
+//  en los métodos getTranspose y printStructure.
