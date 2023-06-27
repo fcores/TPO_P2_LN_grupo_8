@@ -34,7 +34,7 @@ public class QueueOfStacks {
                 sumStack.push(sum);
             }
 
-            // Asegurarse de mantener el orden correcto en las pilas
+            // Con esto nos aseguramos de mantener el orden correcto en las pilas
             while (!stack1.isEmpty()) {
                 sumStack.push(stack1.pop());
             }
@@ -61,7 +61,7 @@ public class QueueOfStacks {
         QueueOfStacks queue1 = new QueueOfStacks();
         QueueOfStacks queue2 = new QueueOfStacks();
 
-        // Crear y agregar pilas a la cola de pilas de queue1
+        // Creamos y agregamos pilas a la cola de pilas de queue1
         Stack<Integer> stack1 = new Stack<>();
         stack1.push(1);
         stack1.push(2);
@@ -81,7 +81,7 @@ public class QueueOfStacks {
         queue1.addStack(stack2);
         queue1.addStack(stack3);
 
-        // Crear y agregar pilas a la cola de pilas de queue2
+        // Creaamos y agregamos pilas a la cola de pilas de queue2
         Stack<Integer> stack4 = new Stack<>();
         stack4.push(10);
         stack4.push(11);
