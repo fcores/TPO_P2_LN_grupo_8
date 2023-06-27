@@ -8,7 +8,7 @@ public class QueueOfQueueImpl<T> implements QueueOfQueue<T> {
         queueOfQueues = new LinkedList<>();
     }
 
-    // Resto de métodos de la clase QueueOfQueueImpl
+    // métodos de la clase QueueOfQueueImpl
 
     public Queue<T> flat() {
         Queue<T> flatQueue = new LinkedList<>();
