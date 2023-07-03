@@ -1,0 +1,36 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class Pila implements PilaTDA {
+    private int[] elementos;
+    private int cantidadElementos;
+
+    // métodos de la interfaz
+
+    @Override
+    public void EliminarRepetidos() {
+        Set<Integer> conjunto = new HashSet<>();
+        PilaTDA pilaAuxiliar = new Pila();
+
+        while (!PilaVacia()) {
+            int elemento = Tope();
+            Desapilar();
+
+            if (!conjunto.contains(elemento)) {
+                conjunto.add(elemento);
+                pilaAuxiliar.Apilar(elemento);
+            }
+        }
+
+        while (!pilaAuxiliar.PilaVacia()) {
+            int elemento = pilaAuxiliar.Tope();
+            pilaAuxiliar.Desapilar();
+            Apilar(elemento);
+        }
+    }
+}
+
+//  complejidad computacional de O(N), donde N es el número de elementos 
+//  en la pila original. Esto se debe a que recorremos la pila una vez y 
+//  realizamos operaciones de inserción y eliminación en conjuntos y pilas, 
+//  que tienen una complejidad de tiempo promedio de O(1).

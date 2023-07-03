@@ -1,0 +1,50 @@
+import java.util.*;
+
+public class GrafoAleatorio {
+    private int numVertices;
+    private List<List<Integer>> adyacencia;
+
+    public GrafoAleatorio(int numVertices) {
+        this.numVertices = numVertices;
+        this.adyacencia = new ArrayList<>(numVertices);
+        for (int i = 0; i < numVertices; i++) {
+            adyacencia.add(new ArrayList<>());
+        }
+    }
+
+    public void agregarArista(int origen, int destino, double probabilidad) {
+        Random random = new Random();
+        if (random.nextDouble() <= probabilidad) {
+            adyacencia.get(origen).add(destino);
+        }
+    }
+
+    public List<Integer> obtenerAdyacentes(int vertice) {
+        return adyacencia.get(vertice);
+    }
+
+    public void imprimirGrafo() {
+        for (int i = 0; i < numVertices; i++) {
+            System.out.print("Vertice " + i + ": ");
+            List<Integer> adyacentes = adyacencia.get(i);
+            for (int j = 0; j < adyacentes.size(); j++) {
+                System.out.print(adyacentes.get(j) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        int numVertices = 5;
+        GrafoAleatorio grafo = new GrafoAleatorio(numVertices);
+
+        grafo.agregarArista(0, 1, 0.5);
+        grafo.agregarArista(0, 2, 0.3);
+        grafo.agregarArista(1, 3, 0.8);
+        grafo.agregarArista(2, 3, 0.2);
+        grafo.agregarArista(2, 4, 0.6);
+        grafo.agregarArista(3, 4, 0.4);
+
+        grafo.imprimirGrafo();
+    }
+}
