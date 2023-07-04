@@ -34,22 +34,23 @@ public class ColaDinamicaCircular<T> {
         cantidad++;
     }
 
-    public void desacolar() {
-        if (!colaVacia()) {
-            frente = frente.getSiguiente();
-            fin.setSiguiente(frente);
-            frente.setAnterior(fin);
-            cantidad--;
+   public void desacolar() {
+    if (!colaVacia()) {
+        frente = frente.getSiguiente();
+        fin.setSiguiente(frente);
+        frente.setAnterior(fin);
+        cantidad--;
 
-            if (colaVacia()) {
-                frente = null;
-                fin = null;
+        if (colaVacia()) {
+            frente = null;
+            fin = null;
             }
         } else {
-            // La cola está vacía, se puede manejar un caso de error o lanzar una excepción
-            System.out.println("Error: La cola está vacía, no se puede desacolar");
+        // La cola está vacía, se puede manejar un caso de error o lanzar una excepción
+        System.out.println("Error: La cola está vacía, no se puede desacolar");
         }
     }
+
     
     public boolean colaVacia() {
         return (cantidad == 0);
