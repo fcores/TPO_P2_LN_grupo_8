@@ -23,13 +23,14 @@ public class QueueOfStacks {
         }
 
         for (Stack<Integer> stack : queueOfStacks) {
-            for (int i = 0; i < size; i++) {
+            int stackSize = stack.size();
+            for (int i = 0; i < stackSize; i++) {
                 columnStacks[i].push(stack.pop());
             }
         }
 
         for (int i = 0; i < size; i++) {
-            transposeQueue.queueOfStacks.offer(columnStacks[i]);
+            transposeQueue.addStack(columnStacks[i]);
         }
 
         return transposeQueue;
