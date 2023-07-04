@@ -77,5 +77,7 @@ public class QueueOfStacks {
     }
 }
 
+// Calculo complejidad computacion:
+
 //  la complejidad computacional del código es O(N*M) en la mayoría de los casos
 //  donde N es el número de pilas en la cola y M es el tamaño de cada pila.
