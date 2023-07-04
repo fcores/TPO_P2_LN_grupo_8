@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Set<E> {
+    private HashSet<E> set;
+
+    public Set() {
+        set = new HashSet<>();
+    }
+
+    public void add(E element) {
+        set.add(element);
+    }
+
+    public void remove(E element) {
+        set.remove(element);
+    }
+
+    public boolean contains(E element) {
+        return set.contains(element);
+    }
+
+    public int size() {
+        return set.size();
+    }
+
+    public boolean isEmpty() {
+        return set.isEmpty();
+    }
+
+    public void clear() {
+        set.clear();
+    }
+
+    public Iterator<E> iterator() {
+        return set.iterator();
+    }
+}
