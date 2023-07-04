@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class QueueWithPriority<E> {
+    private PriorityQueue<ElementWithPriority<E>> priorityQueue;
+
+    public QueueWithPriority() {
+        priorityQueue = new PriorityQueue<>();
+    }
+
+    public void offer(E element, int priority) {
+        priorityQueue.offer(new ElementWithPriority<>(element, priority));
+    }
+
+    public E poll() {
+        return priorityQueue.poll().getElement();
+    }
+
+    public E peek() {
+        return priorityQueue.peek().getElement();
+    }
+
+    public boolean isEmpty() {
+        return priorityQueue.isEmpty();
+    }
+
+    public int size() {
+        return priorityQueue.size();
+    }
+
+    private static class ElementWithPriority<E> implements Comparable<ElementWithPriority<E>> {
+        private E element;
+        private int priority;
+
+        public ElementWithPriority(E element, int priority) {
+            this.element = element;
+            this.priority = priority;
+        }
+
+        public E getElement() {
+            return element;
+        }
+
+        @Override
+        public int compareTo(ElementWithPriority<E> other) {
+            return Integer.compare(priority, other.priority);
+        }
+    }
+}
