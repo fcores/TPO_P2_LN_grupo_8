@@ -1,0 +1,78 @@
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
+public class MonteCarlo {
+    public static class Coordinate {
+        private double x;
+        private double y;
+
+        public Coordinate(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public double getX() {
+            return x;
+        }
+
+        public double getY() {
+            return y;
+        }
+    }
+
+    public static class Montecarlo {
+        private Set<Coordinate> coordinates;
+
+        public Montecarlo() {
+            coordinates = new HashSet<>();
+        }
+
+        public void addCoordinate(Coordinate coordinate) {
+            if (isInRegion(coordinate)) {
+                coordinates.add(coordinate);
+            }
+        }
+
+        private boolean isInRegion(Coordinate coordinate) {
+            return coordinate.getX() >= 0 && coordinate.getY() >= 0 && coordinate.getX() <= 1 && coordinate.getY() <= 1;
+        }
+
+        public int getSize() {
+            return coordinates.size();
+        }
+
+        public double approximatePi() {
+            int pointsInCircle = 0;
+            int totalPoints = getSize();
+
+            for (Coordinate coordinate : coordinates) {
+                if (isInCircle(coordinate)) {
+                    pointsInCircle++;
+                }
+            }
+
+            return 4.0 * pointsInCircle / totalPoints;
+        }
+
+        private boolean isInCircle(Coordinate coordinate) {
+            double distanceSquared = coordinate.getX() * coordinate.getX() + coordinate.getY() * coordinate.getY();
+            return distanceSquared <= 1;
+        }
+    }
+
+    public static void main(String[] args) {
+        Montecarlo montecarlo = new Montecarlo();
+
+        Random random = new Random();
+        for (int i = 0; i < 1000; i++) {
+            double x = random.nextDouble();
+            double y = random.nextDouble();
+            Coordinate coordinate = new Coordinate(x, y);
+            montecarlo.addCoordinate(coordinate);
+        }
+
+        double approximatedPi = montecarlo.approximatePi();
+        System.out.println("Approximated value of π: " + approximatedPi);
+    }
+}
