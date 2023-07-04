@@ -1,0 +1,11 @@
+Si el grafo de entrada no es dirigido, es decir, si contiene aristas bidireccionales
+o no tiene una dirección definida para las aristas, entonces no se puede aplicar el 
+concepto de "fuertemente conexo". La noción de fuertemente conexo se aplica únicamente
+a los grafos dirigidos.
+En un grafo dirigido, un grafo se considera fuertemente conexo si hay un camino dirigido
+desde cualquier vértice hacia cualquier otro vértice del grafo. Sin embargo, en un grafo
+no dirigido, no se puede establecer la noción de un camino dirigido debido a la ausencia 
+de direcciones en las aristas.
+Por lo tanto, si el grafo de entrada no es dirigido, la función podría devolver un conjunto
+vacío de grafos dirigidos, ya que no es posible generar grafos dirigidos fuertemente conexos
+a partir de un grafo no dirigido.
