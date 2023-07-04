@@ -34,6 +34,13 @@ public class QueueOfStacks {
                 sumStack.push(sum);
             }
 
+            // Corrección: invertir el orden de los elementos antes de agregarlos a sumStack
+            Stack<Integer> tempStack = new Stack<>();
+            while (!sumStack.isEmpty()) {
+                tempStack.push(sumStack.pop());
+            }
+            sumStack = tempStack;
+
             // Con esto nos aseguramos de mantener el orden correcto en las pilas
             while (!stack1.isEmpty()) {
                 sumStack.push(stack1.pop());
@@ -114,6 +121,7 @@ public class QueueOfStacks {
         sumQueue.printStructure();
     }
 }
+
 
 //  la complejidad computacional del código es principalmente determinada por el tamaño 
 //  de la cola de pilas (size) y el tamaño máximo de cada pila (n), siendo de O(size * n) 
